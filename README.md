@@ -23,3 +23,19 @@ Build with given skills.
 - concepts into games
 - console logging
 - fundamentals to project
+- Keyboard Events
+
+- Fundamentals Round One (soft luanch)
+- Game Main Event (Promote!)
+
+### Get other degrees involved
+
+- Assests for games digital
+- Music tracks and background
+
+## Logo
+
+- Jestons future retro
+- 80's Cyberpunk
+- 50's FullSail Plane
+- Boy Scout Badge
