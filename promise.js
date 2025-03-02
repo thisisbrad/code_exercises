@@ -1,6 +1,6 @@
 // Original callback-based functions converted to return Promises
 function fetchUserData(userId) {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       const user = { id: userId, name: "User " + userId };
       resolve(user);
@@ -18,7 +18,7 @@ function fetchUserPosts(userId) {
 }
 
 function fetchPostComments(postId) {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       const comments = ["Comment 1", "Comment 2"];
       resolve(comments);
@@ -31,18 +31,18 @@ function fetchPostComments(postId) {
 //   .then((posts) => console.log(posts));
 
 // Refactored code using Promise chain
-// fetchUserData(1)
-//   .then((user) => {
-//     console.log("User:", user);
-//     return fetchUserPosts(user.id);
-//   })
-//   .then((posts) => {
-//     console.log("Posts:", posts);
-//     return fetchPostComments(posts[0]);
-//   })
-//   .then((comments) => {
-//     console.log("Comments:", comments);
-//   })
-//   .catch((error) => {
-//     console.error("An error occurred:", error);
-//   });
+fetchUserData(1)
+  .then((user) => {
+    console.log("User:", user);
+    return fetchUserPosts(user.id);
+  })
+  .then((posts) => {
+    console.log("Posts:", posts);
+    return fetchPostComments(posts[0]);
+  })
+  .then((comments) => {
+    console.log("Comments:", comments);
+  })
+  .catch((error) => {
+    console.error("An error occurred:", error);
+  });

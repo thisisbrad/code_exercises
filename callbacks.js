@@ -29,6 +29,12 @@ fetchUserData(1, (user) => {
   });
 });
 
+// fetchUserData(1, (user) => {
+//   console.log("user", user);
+//   fetchUserPosts(user.id, (posts) => {
+//     console.log("posts", posts);
+//   });
+// });
 // Example usage (to be refactored):
 // fetchUserData(1, (user) => {
 //   console.log("User:", user);
