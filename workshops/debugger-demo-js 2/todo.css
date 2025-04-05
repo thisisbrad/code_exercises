@@ -1,0 +1,123 @@
+:root {
+  --bg: #e3e3df; /* Classic Braun calculator body color */
+  --screen-bg: #cfcfca; /* LCD-like background */
+  --text: #222;
+  --muted-text: #666;
+  --border: #aaa;
+  --button-bg: #d8d8d2;
+  --button-border: #a6a6a2;
+  --button-hover: #c6c6c0;
+  --button-active: #b0b0aa;
+  --highlight: #ff9500; /* Classic Braun orange button */
+  --font: "IBM Plex Mono", "Courier New", monospace;
+  --radius: 8px;
+}
+
+body {
+  margin: 0;
+  padding: 2rem;
+  background-color: var(--bg);
+  font-family: var(--font);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--text);
+}
+
+.todo-app {
+  background-color: var(--screen-bg);
+  padding: 1.5rem;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.todo-screen {
+  background-color: var(--bg);
+  color: var(--text);
+  padding: 0.75rem;
+  font-size: 1.2rem;
+  text-align: right;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  font-weight: bold;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--button-bg);
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--button-border);
+}
+
+.todo-item input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--highlight);
+}
+
+.todo-text {
+  font-size: 1rem;
+  flex: 1;
+  margin-left: 0.75rem;
+}
+
+.todo-text.done {
+  text-decoration: line-through;
+  color: var(--muted-text);
+}
+
+.todo-delete {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.todo-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+button {
+  background-color: var(--button-bg);
+  border: 1px solid var(--button-border);
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+}
+
+button:active {
+  background-color: var(--button-active);
+}
+
+.todo-enter {
+  background-color: var(--highlight);
+  color: white;
+  font-weight: bold;
+}

@@ -1,0 +1,258 @@
+/* Ultimate Braun Calculator-inspired CSS for Todo List */
+
+/* Body and container styling */
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #f0f0f0;
+  /* background: rgb(232, 229, 216);
+  background: radial-gradient(
+    circle,
+    rgba(232, 229, 216, 1) 10%,
+    rgba(208, 206, 194, 1) 100%
+  ); */
+  color: #333333;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* min-height: 100vh; */
+  margin: 0;
+}
+
+/* Calculator device container */
+.calculator-container {
+  width: 340px;
+  background-color: #e8e5d8;
+  border-radius: 8px 8px 10px 10px;
+  box-shadow: 0 0 0 2px #333333, 5px 5px 0 #333333,
+    5px 5px 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+/* Braun-style top bar */
+.calculator-top {
+  height: 20px;
+  background-color: #333333;
+  position: relative;
+}
+
+/* Braun logo simulation */
+.calculator-top::after {
+  content: "fullsail";
+  position: absolute;
+  right: 15px;
+  top: 4px;
+  color: #e8e5d8;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: lowercase;
+  letter-spacing: 1px;
+}
+
+/* Model number */
+.calculator-top::before {
+  content: "JSWS 101";
+  position: absolute;
+  left: 15px;
+  top: 4px;
+  color: #e8e5d8;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+/* Calculator body */
+.calculator-body {
+  padding: 25px 20px 15px;
+}
+
+/* Calculator title */
+h1 {
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 20px;
+  color: #333333;
+  border-bottom: 2px solid #333333;
+  padding-bottom: 12px;
+}
+
+/* Calculator screen styling */
+.calculator-screen {
+  background-color: #d0cec2;
+  border: 2px solid #333333;
+  border-radius: 2px;
+  padding: 12px;
+  margin-bottom: 15px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Input field */
+#taskInput {
+  width: 100%;
+  padding: 10px;
+  font-family: "Courier New", monospace;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #333333;
+  box-sizing: border-box;
+}
+
+/* Button controls area */
+.calculator-controls {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+/* Add task button */
+#submitBtn {
+  padding: 12px;
+  background-color: #ff4b00;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  box-shadow: 0 3px 0 #ce3d00, 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.1s ease;
+}
+
+#submitBtn:hover {
+  background-color: #ff6020;
+}
+
+#submitBtn:active {
+  transform: translateY(3px);
+  box-shadow: 0 0 0 #ce3d00;
+}
+
+/* Task list display */
+.task-display {
+  background-color: #d0cec2;
+  border: 2px solid #333333;
+  border-radius: 2px;
+  padding: 2px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.15);
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+#taskList {
+  list-style-type: none;
+  padding: 10px;
+  margin: 0;
+  font-family: "Courier New", monospace;
+}
+
+/* Custom scrollbar for task list */
+.task-display::-webkit-scrollbar {
+  width: 8px;
+}
+
+.task-display::-webkit-scrollbar-track {
+  background: #c5c2b5;
+  border-radius: 4px;
+}
+
+.task-display::-webkit-scrollbar-thumb {
+  background: #888888;
+  border-radius: 4px;
+}
+
+/* Task items */
+#taskList li {
+  display: flex;
+  align-items: center;
+  padding: 10px 5px;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+}
+
+#taskList li:last-child {
+  border-bottom: none;
+}
+
+/* Checkbox styling like Braun dials */
+#taskList input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #333333;
+  border-radius: 50%;
+  margin-right: 15px;
+  position: relative;
+  cursor: pointer;
+  background-color: #e8e5d8;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#taskList input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 5px;
+  width: 8px;
+  height: 2px;
+  background-color: #333333;
+  opacity: 0.7;
+}
+
+#taskList input[type="checkbox"]:checked {
+  background-color: #ff4b00;
+}
+
+#taskList input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #e8e5d8;
+}
+
+/* Task text */
+#taskList span {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+/* Completed task styling */
+.completed {
+  text-decoration: line-through;
+  color: #777777;
+}
+
+/* Calculator "feet" */
+.calculator-feet {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+.foot {
+  width: 35px;
+  height: 8px;
+  background-color: #333333;
+  border-radius: 0 0 4px 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
+  .calculator-container {
+    width: 95%;
+    max-width: 340px;
+  }
+}

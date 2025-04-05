@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buggy To-Do App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="calculator-container">
+      <div class="calculator-top"></div>
+      <div class="calculator-body">
+        <h1>To-Do List</h1>
+        <div class="calculator-screen">
+          <input type="text" id="taskInput" placeholder="Enter a task" />
+        </div>
+        <div class="calculator-controls">
+          <button id="submitBtn">Add Task</button>
+        </div>
+        <div class="task-display">
+          <ul id="taskList"></ul>
+        </div>
+      </div>
+      <div class="calculator-feet">
+        <div class="foot"></div>
+        <div class="foot"></div>
+        <div class="foot"></div>
+        <div class="foot"></div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const inputField = document.getElementById("taskInput");
+        const submitButton = document.getElementById("submitBtn");
+        const outputDiv = document.getElementById("output");
+        // Error 1: Getting the DOM element
+        // Clean Up: Remove id on button element
+        console.log("🕵️‍♂️ ->", submitButton);
+
+        let tasks = [
+          { text: "walk the dog", completed: true },
+          { text: "make dinner", completed: false },
+          { text: "pay the bills", completed: true },
+          { text: "did your taxes", completed: false },
+        ];
+
+        function refreshList() {
+          let list = document.getElementById("taskList");
+
+          // Error 5: without clearing it doubles the list
+          // Clean up, comment line below out or remove
+          list.innerHTML = "";
+
+          console.log("tasks", tasks);
+          tasks.forEach((task, index) => {
+            // creates the whole li element everything attaches too
+            const listItem = document.createElement("li");
+            // creates the check box and checks it or not
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.checked = task.completed;
+            // creates the text for the todo tasks
+            const span = document.createElement("span");
+            span.textContent = task.text;
+
+            // Error 6: use the right conditional for applying CSS
+            // ideas for inspecting CSS?
+            // Clean up, add !task.completed back
+            if (task.completed) {
+              span.classList.add("completed");
+            }
+
+            function setupEventListeners() {
+              checkbox.addEventListener("change", function () {
+                // Error 7: Passing down task instead of index
+                // add index to forEach and pass it down to toggleTodo instead
+                // Clean up, remove index from forEach and put task in toggleTodo
+                toggleTodo(index);
+              });
+            }
+
+            setupEventListeners();
+
+            listItem.appendChild(checkbox);
+            listItem.appendChild(span);
+            list.appendChild(listItem);
+          });
+        }
+        refreshList();
+
+        function toggleTodo(index) {
+          // Error 8: Passing down task instead of index creates a deep copy issue
+          // Clean up, by passing down the real index
+          console.log(">>>", tasks[index]);
+          const updatedTodo = Object.assign({}, tasks[index]);
+          updatedTodo.completed = !updatedTodo.completed;
+          console.log(updatedTodo);
+
+          // Only replace the specific todo
+          tasks[index] = updatedTodo;
+          refreshList();
+        }
+
+        submitButton.addEventListener("click", function () {
+          // Error 2: Getting value from input
+          // Clean Up: Remove value on inputField and put back .text && change getElementById back to userInput
+          //   console.log("User input value:", inputField.value); // Debugging log
+          let taskInput = inputField.value; // Incorrect property usage
+
+          if (!taskInput) {
+            console.log("Task input is empty!");
+            return;
+          }
+          // Error 5: Adding text and not an object
+          // Clean up: make just taskInput
+          // { text: taskInput, completed: false }
+          tasks.push({ text: taskInput, completed: false });
+          // Error 3: Not clearing out the input field
+          // Clean up, comment out line below
+          inputField.value = "";
+          refreshList();
+        });
+      });
+    </script>
+  </body>
+</html>
