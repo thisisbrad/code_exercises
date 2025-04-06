@@ -54,7 +54,7 @@
           list.innerHTML = "";
 
           console.log("🕵️‍♂️ tasks:", tasks);
-          tasks.forEach((task) => {
+          tasks.forEach((task, index) => {
             // creates the whole li element everything attaches too
             const listItem = document.createElement("li");
             // creates the check box and checks it or not
@@ -77,7 +77,7 @@
                 // Error 7: Passing down task instead of index
                 // add index to forEach and pass it down to toggleTodo instead
                 // Clean up, remove index from forEach and put task in toggleTodo
-                toggleTodo(task);
+                toggleTodo(index);
               });
             }
 
