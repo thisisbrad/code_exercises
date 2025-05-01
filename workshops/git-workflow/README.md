@@ -38,23 +38,24 @@ git push origin master -u
 fetch and merge the changes
 git pull origin master
 
+delete repo and clone it back down
+
 git clone
 
 git branch
-git branch -M rename
 git branch -b newBranch
+git branch -M rename
 git branch -d killMe
 
 make a branch and delete it.
 
 show that differeent branches are a new timeline
+add files to new bracnh and go back to main and show the file isnt there
 
 git checkout - -> last branch
 
 git diff
-git merge abort
-
-prettier config
+git merge
 
 pre commit makes a temporerty file out of the config
 uses that then deletes it
