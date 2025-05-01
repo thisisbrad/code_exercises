@@ -55,7 +55,7 @@ add files to new bracnh and go back to main and show the file isnt there
 git checkout - -> last branch
 
 git diff
-git merge
+git merge abort
 
 pre commit makes a temporerty file out of the config
 uses that then deletes it
