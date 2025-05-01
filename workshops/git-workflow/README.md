@@ -48,14 +48,17 @@ git branch -M rename
 git branch -d killMe
 
 make a branch and delete it.
-
+make commit and show the changes
+git diff
 show that differeent branches are a new timeline
-add files to new bracnh and go back to main and show the file isnt there
+add files to new branch and go back to main and show the file isnt there
 
 git checkout - -> last branch
 
-git diff
-git merge abort
+add changes to remote repo
+git fetch origin
+git merge origin/main
+add antoher change and do git pull
 
 pre commit makes a temporerty file out of the config
 uses that then deletes it
