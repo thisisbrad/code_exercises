@@ -1,5 +1,19 @@
 # Git & GitHub Workshop
 
+Start with Linux commands
+Go over working in a terminal enviroment
+
+Basic Linus commands:
+ls: List all files, but sorted by size and print the size.
+cd: Move into the previous directory
+pwd: Print the current working directory
+echo: print out text
+mkdir: Make a deeply nested directory and all it’s parent directories
+touch: Create a new file
+rm: removes files and directories
+cp: copies and makes new file
+mv: moves and deletes old file
+
 show .git folder
 .gitignore
 show U to A
