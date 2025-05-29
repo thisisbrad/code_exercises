@@ -4,11 +4,18 @@ Absolutely! Let’s update the guide to include a clear comparison of **merge** 
 
 ## Git Branching, Merging, Rebasing, and Remote Workflows
 
+### 🏁 Create a Directory
+
+```bash
+pwd
+mkdir git-demo
+cd git-demo
+touch README.md
+```
+
 ### 1️⃣ Create a Repository and Set Up Branches
 
 ```bash
-mkdir git-merge-demo
-cd git-merge-demo
 git init
 echo "Line 1" > file.txt
 git add file.txt

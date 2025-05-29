@@ -14,40 +14,69 @@ rm: removes files and directories
 cp: copies and makes new file
 mv: moves and deletes old file
 
-show .git folder
-.gitignore
+after init show .git folder with ls -a
+git add .
 show U to A
 git status
-git log
+git commit -m "Initial commit"
+git log --oneline --graph
 
-add secret.json
-show git status
-add to gitignore and show its gone.
-staging -> commit
+touch secret.json
+
+- paste: {"key":"fullsail"}
+  echo "secret.json" > .gitignore
+- show tracked vs untracked files
+  git add .
+
 add them to staging
-add another file and show tracked vs untracked files
-expample the HEAD of the branch
-`git commit -a -m "fix:typo"`
-VS Code dropdown options
+
+<!-- expample the HEAD of the branch
+`git commit -a -m "fix:typo"` -->
+<!-- VS Code dropdown options -->
 
 Show how to set up a repo on Github.
 git remote
 explain origin and branch
-git remote show origin
 git push origin master -u
-fetch and merge the changes
-git pull origin master
+
+- explain upstream
+- edit README on GitHub and commit changes
+- fetch the changes
+  git fetch
+  git status
+- show you need to pull
+  git pull origin master
 
 delete repo and clone it back down
 
 git clone
 
-git branch
-git branch -b newBranch
-git branch -M rename
-git branch -d killMe
+- git branches
+  git checkout -b newBranch
+  git branch -M fakeBranch
+  - go back to main and delete branch
+    git checkout main
+    git branch -d fakeBranch
+- make new branch
+  git checkout -b test
+  echo "Line 1" > file.txt
+  git add file.txt
+  git commit -m "added file.txt"
+  git push origin test
+- Look at GitHub
+- PR the two feature branches
+  git pull origin feature
+  git merge origin/feature
+- make changes and save file
+  git commit -am "fixed conflict"
+- approve PR
+- show feature branches are the same now
+  git checkout main
+  git merge test
+  git push origin main
+  -Show Github
 
-make a branch and delete it.
+<!-- make a branch and delete it.
 make commit and show the changes
 git diff
 show that differeent branches are a new timeline
@@ -58,7 +87,7 @@ git checkout - -> last branch
 add changes to remote repo
 git fetch origin
 git merge origin/main
-add antoher change and do git pull
+add antoher change and do git pull -->
 
-pre commit makes a temporerty file out of the config
-uses that then deletes it
+<!-- pre commit makes a temporerty file out of the config
+uses that then deletes it -->
