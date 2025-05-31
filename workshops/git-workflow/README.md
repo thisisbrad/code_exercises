@@ -75,6 +75,11 @@ git clone
   git merge test
   git push origin main
   -Show Github
+  git push -d <remote_name> <branchname> # Delete remote
+  git branch -d <branchname> # Delete local
+  - git status --short
+
+### Merge vs Rebase
 
 <!-- make a branch and delete it.
 make commit and show the changes
